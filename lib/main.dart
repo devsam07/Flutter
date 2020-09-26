@@ -4,34 +4,11 @@ void main(){
   runApp(MaterialApp(
     title: "Awesome App",
     home: HomePage(),
+    theme: ThemeData(
+      primarySwatch: Colors.purple,
+    ),
   ));
 }
-
-/* class HomePage extends StatelessWidget { 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Awesome Flutter"),
-      ),
-      body: Container(
-        child: Center(child: 
-        Container(
-          padding: const EdgeInsets.all(15),
-          alignment: Alignment.center,
-          //color: Colors.indigoAccent,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            //shape: BoxShape.circle,
-            color: Colors.indigoAccent),
-          width: 100,
-          height: 100,
-          child: Text("I am a Box",textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),),
-        )),
-      ),
-    );
-  }
-}*/
 
 class HomePage extends StatelessWidget { 
   @override
@@ -40,27 +17,32 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Awesome Flutter"),
       ),
-      body: 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: <Widget>[
-          Container(
-          padding: const EdgeInsets.all(15),
-          width: 100,
-          height: 100,
-          color: Colors.green),
-          Container(
-          padding: const EdgeInsets.all(15),
-          width: 100,
-          height: 100,
-          color: Colors.black),
-          Container(
-          padding: const EdgeInsets.all(15),
-          width: 100,
-          height: 100,
-          color: Colors.yellow)
-        ],),
+/*             DrawerHeader(child: Text("Hi, I am Drawer", style: TextStyle(color: Colors.white),),
+            decoration: BoxDecoration(color: Colors.purple),
+            ), */
+            UserAccountsDrawerHeader(
+              accountName: Text("Jai Siya Ram"), 
+              accountEmail: Text("dev.sam@gmail.com"),
+              currentAccountPicture: Image.network("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"),
+              ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Account"),
+              subtitle: Text("Personal"),
+              trailing: Icon(Icons.edit),
+            )
+          ],            
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () {},
+      child: Icon(Icons.edit),
+      ),
+
       );
   }
 }

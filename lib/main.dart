@@ -7,7 +7,7 @@ void main(){
   ));
 }
 
-class HomePage extends StatelessWidget {
+/* class HomePage extends StatelessWidget { 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,5 +30,37 @@ class HomePage extends StatelessWidget {
         )),
       ),
     );
+  }
+}*/
+
+class HomePage extends StatelessWidget { 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Awesome Flutter"),
+      ),
+      body: 
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+          Container(
+          padding: const EdgeInsets.all(15),
+          width: 100,
+          height: 100,
+          color: Colors.green),
+          Container(
+          padding: const EdgeInsets.all(15),
+          width: 100,
+          height: 100,
+          color: Colors.black),
+          Container(
+          padding: const EdgeInsets.all(15),
+          width: 100,
+          height: 100,
+          color: Colors.yellow)
+        ],),
+      );
   }
 }

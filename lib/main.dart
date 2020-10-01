@@ -10,14 +10,56 @@ void main(){
   ));
 }
 
-class HomePage extends StatelessWidget { 
+class HomePage extends StatefulWidget { 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+TextEditingController _nameController = TextEditingController();
+var myText = "Change Me";
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("Awesome Flutter"),
       ),
-      body: Container(),
+      body: Padding(padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
+              child: Card(
+          child: Column(
+            children: <Widget>[Image.asset("assets/PC.jpg", height: 400,),
+            SizedBox(height: 20,),
+            Text(myText),
+            SizedBox(height: 20,),
+
+            Padding(padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _nameController,
+              keyboardType: TextInputType.text,
+              //obscureText: true,
+              decoration: InputDecoration(
+                hintText: "Enter something here..",
+                border: OutlineInputBorder(),
+                labelText: "Name",
+                ),
+                ),
+
+            )
+            ],
+          ),
+        ),
+      ),
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -39,8 +81,13 @@ class HomePage extends StatelessWidget {
           ],            
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {},
-      child: Icon(Icons.edit),
+      floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        myText = _nameController.text;
+        setState(() {     
+        });
+      },
+      child: Icon(Icons.refresh),
       ),
 
       );

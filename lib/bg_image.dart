@@ -7,6 +7,9 @@ class BgImage extends StatelessWidget {
     return Image.asset(
       "assets/PC.jpg", 
       height: 400,
+      fit: BoxFit.cover,
+      color: Colors.black.withOpacity(0.1),
+      colorBlendMode: BlendMode.darken,
       );
   }
 }
